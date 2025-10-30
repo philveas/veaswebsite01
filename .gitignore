@@ -1,6 +1,11 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ----------------------------------------------------
+# FINAL .gitignore: Consolidated & Optimized
+# ----------------------------------------------------
 
-# dependencies
+# 1. DEPENDENCIES / BUILD OUTPUT
+# =============================
+
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +15,48 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# Next.js Build Artifacts & Output
 /.next/
 /out/
-
-# production
 /build
+/dist/
+/.turbo/
 
-# misc
-.DS_Store
-*.pem
+# Firebase & Functions Cache (CRITICAL FOR WINDOWS/GIT)
+.firebase/
+firebase-debug.log
+/firebase-export/
+/functions/node_modules
 
-# debug
+# 2. CACHE AND TEMPORARY FILES
+# ============================
+
+# Next.js / TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+/coverage
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# 3. ENVIRONMENT & DEPLOYMENT
+# ============================
 
-# vercel
+# Environment and Deployment Configs
+.env*
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# 4. SYSTEM & MISC FILES
+# ============================
+
+.DS_Store
+Thumbs.db
+*.pem
+
+# Exclude all contents of the Prototypes directory from Git tracking
+Prototypes/

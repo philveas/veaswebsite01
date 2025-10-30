@@ -1,11 +1,28 @@
-import type { NextConfig } from 'next';
+// next.config.ts
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Produce a fully static export during `next build`
-  output: 'export',
+  // ✅ Static export for deployment (e.g., Firebase Hosting or static hosting)
+  output: "export",
 
-  // Next/Image needs this for static export
-  images: { unoptimized: true },
+  // ✅ Image configuration (supports local + remote images)
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.veasacoustics.com",
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
